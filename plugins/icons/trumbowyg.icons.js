@@ -63,7 +63,7 @@
     function clickHandler(element, trumbowyg) {
         console.log("element " + element);
 
-        //$"trumbowyg.trigger("icon-changed", element);
+        trumbowyg.trigger("icon-changed", element);
         return ['icon'];
     }
 
