@@ -137,7 +137,10 @@
                 style: 'background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQIW2NkQAAfEJMRmwBYhoGBYQtMBYoAADziAp0jtJTgAAAAAElFTkSuQmCC);'
             };
         trumbowyg.addBtnDef(removeColorButtonName, removeColorBtnDef);
-        dropdown.push(removeColorButtonName);
+
+        // Uncomment this if we need the transparent color
+
+        // dropdown.push(removeColorButtonName);
 
         // add free color btn
         var freeColorButtonName = fn + 'Free',

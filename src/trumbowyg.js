@@ -999,7 +999,7 @@ jQuery.trumbowyg = {
 
             return $('<button/>', {
                 type: 'button',
-                class: prefix + btnName + '-dropdown-button' + (btn.ico ? ' ' + prefix + btn.ico + '-button' : ''),
+                class: prefix + btnName + '-dropdown-button' + (btn.ico ? ' ' + prefix + btn.ico + '-button' : '') + ' ' + (btn.class || ''),
                 html: t.hasSvg && hasIcon ? '<svg><use xlink:href="' + t.svgPath + '#' + prefix + (btn.ico || btnName).replace(/([A-Z]+)/g, '-$1').toLowerCase() + '"/></svg>' + (btn.text || btn.title || t.lang[btnName] || btnName) : (btn.text || btn.title || t.lang[btnName] || btnName),
                 title: ((btn.key) ? ' (Ctrl + ' + btn.key + ')' : null),
                 style: btn.style || null,
