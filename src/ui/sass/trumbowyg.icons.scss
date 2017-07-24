@@ -1,3 +1,14 @@
+/**
+ * Trumbowyg v2.5.1 - A lightweight WYSIWYG editor
+ * Default stylesheet for Trumbowyg editor
+ * ------------------------
+ * @link http://alex-d.github.io/Trumbowyg
+ * @license MIT
+ * @author Alexandre Demode (Alex-D)
+ *         Twitter : @AlexandreDemode
+ *         Website : alex-d.fr
+ */
+
 .trumbowyg-icons-button {
     &:after {
         top: 15px !important;
@@ -11,6 +22,7 @@
 .trumbowyg-dropdown-icons {
     width: 266px;
     padding: 8px;
+    z-index: 2;
 
     svg {
         display: none !important;
