@@ -34,19 +34,19 @@
 
     function buildDropdown(fn, trumbowyg) {
         var dropdown = [];
-        var icons = [0, 1, 2, 3, 4, 5, 6 , 7, 8, 9, 10];
+        var icons = trumbowyg.o.iconSet;
         var activeIcon = trumbowyg.o.icon;
         $.each(icons, function (i, val) {
             var trumbo = trumbowyg;
-            var btn = fn + val,
+            var btn = fn + i,
                 btnDef = {
                     fn: function() {
-                        trumbo.$c.trigger('icon-changed', val);
+                        trumbo.$c.trigger('icon-changed', i);
                     },
-                    param: '#' + val,
+                    param: '#' + i,
                     forceCss: true,
-                    style: 'background-size: cover; background-image: url(' + iconURL(val, trumbo) + ');',
-                    class: (activeIcon == val) ? 'active' : ''
+                    style: 'background-size: cover; background-image: url(' + iconURL(i, trumbo) + ');',
+                    class: (activeIcon === i) ? 'active' : ''
                 };
             trumbo.addBtnDef(btn, btnDef);
             dropdown.push(btn);
