@@ -58,8 +58,12 @@
     });
 
     function iconURL(icon, trumbowyg) {
-        return "'" + trumbowyg.o.iconSet[icon].light + "'";
-        //return 'https://dev.convertize.io/plugins/free-text/images/Icon_' + Number(icon) + '.svg';
+        if(trumbowyg.o.iconSet) {
+            return "'" + trumbowyg.o.iconSet[icon].light + "'";
+        }
+        else {
+            return "";
+        }
     }
 
     function buildDropdown(fn, trumbowyg) {
