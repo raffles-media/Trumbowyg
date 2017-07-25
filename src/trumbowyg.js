@@ -669,7 +669,8 @@ jQuery.trumbowyg = {
                             }
                         } catch (d) {
                             // Not IE
-                            t.execCmd('insertText', (e.originalEvent || e).clipboardData.getData('text/plain'));
+                            text = (e.originalEvent || e).clipboardData.getData('text/plain');
+                            t.execCmd('insertText', text);
                         }
                     }
 
@@ -680,7 +681,7 @@ jQuery.trumbowyg = {
 
                     setTimeout(function () {
                         t.semanticCode(false, true);
-                        t.$c.trigger('tbwpaste', e);
+                        t.$c.trigger('tbwpaste', {event: e, text: text});
                     }, 0);
                 });
 
