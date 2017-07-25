@@ -1026,16 +1026,16 @@ jQuery.trumbowyg = {
             var t = this;
             t.$overlay = $('<div/>', {
                 class: t.o.prefix + 'overlay'
-            }).css({
-                top: t.$btnPane.outerHeight(),
-                height: (t.$ed.outerHeight() + 1) + 'px'
             }).appendTo(t.$box);
             return t.$overlay;
         },
         showOverlay: function () {
             var t = this;
             $(window).trigger('scroll');
-            t.$overlay.fadeIn(200);
+            t.$overlay.css({
+                top: t.$btnPane.outerHeight(),
+                height: (t.$ed.outerHeight() + 1) + 'px'
+            }).fadeIn(200);
             t.$box.addClass(t.o.prefix + 'box-blur');
         },
         hideOverlay: function () {
