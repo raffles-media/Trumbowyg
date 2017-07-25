@@ -24,12 +24,10 @@
     });
 
     function iconURL(icon, trumbowyg) {
-        if(trumbowyg.o.iconSet) {
+        if (trumbowyg.o.iconSet) {
             return "'" + trumbowyg.o.iconSet[icon].light + "'";
         }
-        else {
-            return "";
-        }
+        return "";
     }
 
     function buildDropdown(fn, trumbowyg) {
