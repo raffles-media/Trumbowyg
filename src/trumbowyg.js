@@ -669,7 +669,8 @@ jQuery.trumbowyg = {
                             }
                         } catch (d) {
                             // Not IE
-                            t.execCmd('insertText', (e.originalEvent || e).clipboardData.getData('text/plain'));
+                            text = (e.originalEvent || e).clipboardData.getData('text/plain');
+                            t.execCmd('insertText', text);
                         }
                     }
 
@@ -680,7 +681,7 @@ jQuery.trumbowyg = {
 
                     setTimeout(function () {
                         t.semanticCode(false, true);
-                        t.$c.trigger('tbwpaste', e);
+                        t.$c.trigger('tbwpaste', {event: e, text: text});
                     }, 0);
                 });
 
@@ -999,7 +1000,7 @@ jQuery.trumbowyg = {
 
             return $('<button/>', {
                 type: 'button',
-                class: prefix + btnName + '-dropdown-button' + (btn.ico ? ' ' + prefix + btn.ico + '-button' : ''),
+                class: prefix + btnName + '-dropdown-button' + (btn.ico ? ' ' + prefix + btn.ico + '-button' : '') + ' ' + (btn.class || ''),
                 html: t.hasSvg && hasIcon ? '<svg><use xlink:href="' + t.svgPath + '#' + prefix + (btn.ico || btnName).replace(/([A-Z]+)/g, '-$1').toLowerCase() + '"/></svg>' + (btn.text || btn.title || t.lang[btnName] || btnName) : (btn.text || btn.title || t.lang[btnName] || btnName),
                 title: ((btn.key) ? ' (Ctrl + ' + btn.key + ')' : null),
                 style: btn.style || null,
@@ -1026,16 +1027,16 @@ jQuery.trumbowyg = {
             var t = this;
             t.$overlay = $('<div/>', {
                 class: t.o.prefix + 'overlay'
-            }).css({
-                top: t.$btnPane.outerHeight(),
-                height: (t.$ed.outerHeight() + 1) + 'px'
             }).appendTo(t.$box);
             return t.$overlay;
         },
         showOverlay: function () {
             var t = this;
             $(window).trigger('scroll');
-            t.$overlay.fadeIn(200);
+            t.$overlay.css({
+                top: t.$btnPane.outerHeight(),
+                height: (t.$ed.outerHeight() + 1) + 'px'
+            }).fadeIn(200);
             t.$box.addClass(t.o.prefix + 'box-blur');
         },
         hideOverlay: function () {
