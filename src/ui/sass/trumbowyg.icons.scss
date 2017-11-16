@@ -23,6 +23,8 @@
     width: 266px;
     padding: 8px;
     z-index: 2;
+    height: 205px;
+    overflow-y: scroll;
 
     svg {
         display: none !important;
